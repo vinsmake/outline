@@ -5,7 +5,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - storage-data:/var/lib/outline/data
+      - ./data/outline:/var/lib/outline/data
     depends_on:
       - postgres
       - redis
@@ -27,13 +27,10 @@ services:
     expose:
       - "5432"
     volumes:
-      - database-data:/var/lib/postgresql
+      - ./data/postgres:/var/lib/postgresql
     environment:
       POSTGRES_USER: 'user'
       POSTGRES_PASSWORD: 'pass'
       POSTGRES_DB: 'outline'
     restart: unless-stopped
 
-volumes:
-  storage-data:
-  database-data:
