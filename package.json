@@ -1,0 +1,9 @@
+{
+  "name": "outline-docker",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "backup": "docker compose stop && tar -cf data.tar data && docker compose start",
+    "restore": "docker compose stop && rm -rf data && tar -xf data.tar && docker compose start"
+  }
+}

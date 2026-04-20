@@ -1,2 +1,5 @@
-data/
+data/*
+!data/.gitkeep
+data.tar
 docker.env
+node_modules/
