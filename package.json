@@ -1,9 +1,11 @@
 {
-  "name": "outline-docker",
+  "name": "affine-docker",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "backup": "docker compose stop && tar -cf data.tar data && docker compose start",
-    "restore": "docker compose stop && rm -rf data && tar -xf data.tar && docker compose start"
+    "backup": "tar -cf data.tar data",
+    "backup:safe": "docker compose stop && tar -cf data.tar data && docker compose start",
+    "restore": "rm -rf data && tar -xf data.tar",
+    "restore:safe": "docker compose stop && rm -rf data && tar -xf data.tar && docker compose start"
   }
 }
